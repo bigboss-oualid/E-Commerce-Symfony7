@@ -1,0 +1,57 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+    {{ 'homepage.head.title'|trans }}
+{% endblock title %}
+
+{% block body %}
+    <div class="container pt-5">
+        <h1>{{ 'homepage.body.title'|trans }}</h1>
+        <div class="row">
+            {% for p in products %}
+                <div class="col">
+                    <div class="card border border-primary">
+                        <img
+                            class="img-fluid"
+                            src="{{ p.mainPicture }}"
+                            alt="{{ p.name }}"
+                        >
+                        <div class="card-body">
+                            <h4 class="card-title">{{ p.name }}({{ p.price / 100}}) &euro;</h4>
+
+                            <span class="badge bg-info">
+                                {{ p.category.name }}
+                            </span>
+
+                            <p class="card-text">{{ p.shortDescription }}</p>
+                            <a href="#" class="btn btn-primary btn-sm">{{ 'details'|trans({}, 'btn') }}</a>
+                            <a href="#" class="btn btn-primary btn-sm">{{ 'add'|trans({}, 'btn') }}</a>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+        <hr>
+        <h2>Un Service irreproachable</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsam, iusto, laboriosam? Ad autem maiores quis?</p>
+        {% set assurances = [
+            {
+                'color':'primary',
+                'icon':'fas fa-truck',
+                'text': 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus enim iusto omnis sed temporibus voluptas?'
+            },
+            {
+                'color':'success',
+                'icon':'fas fa-check',
+                'text': 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus enim iusto omnis sed temporibus voluptas?'
+            },
+            {
+                'color':'warning',
+                'icon':'fas fa-lock',
+                'text': 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus enim iusto omnis sed temporibus voluptas?'
+            }]
+        %}
+        {% include 'shared/_services_blocks.html.twig' with { 'blocks' : assurances} %}
+    </div>
+{% endblock %}
+
