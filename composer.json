@@ -16,6 +16,7 @@
         "symfony/flex": "^2",
         "symfony/framework-bundle": "7.1.*",
         "symfony/runtime": "7.1.*",
+        "symfony/string": "7.1.*",
         "symfony/translation": "7.1.*",
         "symfony/twig-bundle": "7.1.*",
         "symfony/yaml": "7.1.*",
@@ -70,5 +71,13 @@
             "allow-contrib": false,
             "require": "7.1.*"
         }
+    },
+    "require-dev": {
+        "bluemmb/faker-picsum-photos-provider": "^2.0",
+        "doctrine/doctrine-fixtures-bundle": "^4.0",
+        "fakerphp/faker": "^1.24",
+        "liorchamla/faker-prices": "^2.0",
+        "mbezhanov/faker-provider-collection": "^2.0",
+        "symfony/maker-bundle": "^1.61"
     }
 }
