@@ -1,3 +1,10 @@
+###> IDEA ###
+.idea
+###< IDE ###
+
+###> code/quality ###
+psalm.xml
+###< code/quality ###
 
 ###> symfony/framework-bundle ###
 /.env.local

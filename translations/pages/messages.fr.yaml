@@ -1,0 +1,8 @@
+homepage:
+  head:
+    title: Accueil
+  body:
+    card:
+      img:
+        alt: 'Produit: %name%'
+    title: 'Nos Produits'
