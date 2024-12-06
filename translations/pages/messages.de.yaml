@@ -1,3 +1,16 @@
 homepage:
   head:
     title: Startseite
+  body:
+    card:
+      img:
+        alt: 'messages'
+    title: 'messages'
+category:
+  head:
+    title: 'Kategorie: %name%'
+  h1: 'Kategorie: %name%'
+product:
+  head:
+    title: 'Produkt: %name%'
+  h1: 'Produkt: %name%'

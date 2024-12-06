@@ -6,3 +6,7 @@ homepage:
       img:
         alt: 'messages'
     title: 'messages'
+category:
+  head:
+    title: 'Category: %name%'
+  h1: 'Category: %name%'

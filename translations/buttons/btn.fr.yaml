@@ -1,2 +1,5 @@
 add: Ajouter
 details: Details
+btn:
+  add:
+    cart: 'Ajouter au panier'

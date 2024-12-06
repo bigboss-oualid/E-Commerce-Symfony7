@@ -6,3 +6,11 @@ homepage:
       img:
         alt: 'Produit: %name%'
     title: 'Nos Produits'
+category:
+  head:
+    title: 'Catégorie: %name%'
+  h1: 'Catégorie: %name%'
+product:
+  head:
+    title: 'Produit: %name%'
+  h1: 'Produit: %name%'

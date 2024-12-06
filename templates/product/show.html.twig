@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+    {{ 'product.head.title'|trans({'%name%': product.name}) }}
+{% endblock %}
+
+{% block body %}
+    <div class="container pt-5">
+
+        {% include 'shared/_breadcrumb.html.twig' with { 'links' :
+            [
+                {'href': path('homepage'), 'name': 'homepage.head.title'|trans },
+                {'href': path('products_category_show', {'slug': product.category.slug}),
+                    'name': product.category.name
+                },
+                {'href': '#', 'name': product.name },
+            ]}
+        %}
+
+        <h1>{{'product.h1'|trans({'%name%': product.name})}}  ({{ product.price / 100}}) &euro;</h1>
+        <div class="row">
+            <div class="col-4">
+                <img class="omg-fluid" src="{{ product.mainPicture }}" alt="{{'img.alt'|trans({'%name%': product.name}, 'img')}}">
+            </div>
+            <div class="col">
+                <span class="badge bg-primary">
+                    {{ product.category.name }}
+                </span>
+                <p>{{ product.shortDescription }}</p>
+                <a href="#" class="btn btn-success btn-lg">
+                    <i class="fas fa-shopping-cart"></i>
+                    {{ 'btn.add.cart'|trans({}, 'btn') }}
+                </a>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
