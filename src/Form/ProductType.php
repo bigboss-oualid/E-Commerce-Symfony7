@@ -16,7 +16,9 @@ use Symfony\Contracts\Translation\TranslatorInterface;
 
 class ProductType extends AbstractType
 {
-    public function __construct(private TranslatorInterface $translator) {}
+    public function __construct(private readonly TranslatorInterface $translator)
+    {
+    }
 
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
@@ -39,7 +41,7 @@ class ProductType extends AbstractType
                 'price',
                 MoneyType::class,
                 [
-                    //'divisor' => 100,
+                    'divisor' => 100,
                     'label' => $this->translator->trans('product.create.form.price.label'),
                     'attr' => ['placeholder' => $this->translator->trans('product.create.form.price.placeholder')]
                 ]
