@@ -1,0 +1,28 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+    {{ 'category.create.head.title'|trans }}
+{% endblock %}
+
+{% block body %}
+    <div class="container pt-5">
+        <h1>{{ 'category.create.h1'|trans }}</h1>
+
+        {# {{ form(formView) }}#}
+
+        {{ form_start(formView) }}
+        {{ form_errors(formView) }}
+        <div class="row">
+            <div class="col">
+                {{ form_row(formView.name) }}
+            </div>
+        </div>
+
+        <button type="submit" class="btn btn-success">
+            <i class="fas fa-save"></i>
+            {{ 'category.create.form.btn.create'|trans }}
+        </button>
+        {{ form_end(formView) }}
+    </div>
+{% endblock %}
+

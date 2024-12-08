@@ -1,0 +1,27 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+    {{ 'category.edit.head.title'|trans({'%name%' : formView.name.vars.value}) }}
+{% endblock %}
+
+{% block body %}
+    <div class="container pt-5">
+        <h1>{{ 'category.edit.h1'|trans({'%name%' : formView.name.vars.value}) }}</h1>
+
+        {{ form_start(formView) }}
+        {{ form_errors(formView) }}
+        <div class="row">
+            <div class="col">
+                {{ form_row(formView.name) }}
+            </div>
+        </div>
+
+
+        <button type="submit" class="btn btn-success">
+            <i class="fas fa-save"></i>
+            {{ 'category.edit.form.btn.save'|trans }}
+        </button>
+        {{ form_end(formView) }}
+    </div>
+{% endblock %}
+

@@ -10,9 +10,6 @@
     {% include 'shared/_breadcrumb.html.twig' with { 'links' :
         [
             {'href': path('homepage'), 'name': 'homepage.head.title'|trans },
-            {'href': path('products_category_show', {'slug': category.slug}),
-                'name': category.name
-            },
             {'href': '#', 'name': category.name },
         ]}
     %}

@@ -10,7 +10,53 @@ category:
   head:
     title: 'Catégorie: %name%'
   h1: 'Catégorie: %name%'
+  edit:
+    head:
+      title: "Modification d'une catégorie"
+    h1: "Modifier la catégorie: %name%"
+    form:
+      btn:
+        save: 'Sauvegarder catégorie'
+  create:
+    head:
+      title: "Création d'une catégorie"
+    h1: 'Nouvelle catégorie'
+    form:
+      btn:
+        create: 'Créer catégorie'
+      name:
+        label: 'Nom de la catégorie'
+        placeholder: 'Tapez le nom de la catégorie'
 product:
   head:
     title: 'Produit: %name%'
   h1: 'Produit: %name%'
+  create:
+    head:
+      title: "Création d'un produit"
+    h1: 'Nouveau produit'
+    form:
+      name:
+        label: 'Nom du produit'
+        placeholder: 'Tapez le nom du produit'
+      shortDesc:
+        label: 'Tapez une description assez courte mais parlante pour le visiteur'
+        placeholder: 'Description courte'
+      category:
+        label: 'Catégorie'
+        placeholder: '-- Choisir une catégorie --'
+      price:
+        label: 'Prix du produit'
+        placeholder: 'Tapez le prix du produit en €'
+      btn:
+        create: 'create'
+      img:
+        label: 'Image du produit'
+        placeholder: "Tapez une url d'image"
+  edit:
+    head:
+      title: 'Modification Produit: %name%'
+    h1: 'Modifier le produit %name%'
+    form:
+      btn:
+        save: 'Sauvegarder produit'
