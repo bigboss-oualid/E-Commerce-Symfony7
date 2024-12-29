@@ -5,6 +5,7 @@ namespace App\Entity;
 use App\Repository\ProductRepository;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 #[ORM\Entity(repositoryClass: ProductRepository::class)]
 class Product
@@ -15,9 +16,12 @@ class Product
     private ?int $id = null;
 
     #[ORM\Column(length: 255)]
+    #[Assert\NotBlank(message: 'product.name.notBlank')]
+    #[Assert\Length(min: 3, max: 255, minMessage: 'product.name.length.min', maxMessage: 'product.name.length.max')]
     private ?string $name = null;
 
     #[ORM\Column]
+    #[Assert\NotBlank(message: 'product.price.notBlank', groups: ['with-price'])]
     private ?int $price = null;
 
     #[ORM\Column(length: 255)]
@@ -42,7 +46,7 @@ class Product
         return $this->name;
     }
 
-    public function setName(string $name): static
+    public function setName(?string $name): static
     {
         $this->name = $name;
 
@@ -54,7 +58,7 @@ class Product
         return $this->price;
     }
 
-    public function setPrice(int $price): static
+    public function setPrice(?int $price): static
     {
         $this->price = $price;
 

@@ -42,9 +42,12 @@ class ProductController extends AbstractController
     #[Route('/admin/product/{id}/edit', name: 'product_edit')]
     final public function edit(Product $product, Request $request, EntityManagerInterface $em): Response
     {
-        $form = $this->createForm(ProductType::class, $product);
+        $form = $this->createForm(ProductType::class, $product, [
+            'validations_groups' => ['default','with-price'],
+        ]);
         $form->handleRequest($request);
-        if ($form->isSubmitted()) {
+        if ($form->isSubmitted() && $form->isValid()) {
+
             $em->flush();
 
             return $this->redirectToRoute('product_show', [

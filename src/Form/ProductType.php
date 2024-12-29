@@ -28,7 +28,8 @@ class ProductType extends AbstractType
                 TextType::class,
                 [
                     'label' => $this->translator->trans('product.create.form.name.label'),
-                    'attr' => ['placeholder' => $this->translator->trans('product.create.form.name.placeholder')]
+                    'attr' => ['placeholder' => $this->translator->trans('product.create.form.name.placeholder')],
+                    'required' => false,
                 ]
             )->add(
                 'shortDescription',
