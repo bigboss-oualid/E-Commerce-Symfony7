@@ -27,6 +27,9 @@ category:
       name:
         label: 'Nom de la catégorie'
         placeholder: 'Tapez le nom de la catégorie'
+        notBlank: 'Le nom de la catégorie est obligatoire'
+        lengthMin: 'Le nom de la catégorie faire au moins 3 caractères'
+        lengthMax: 'Le nom de la catégorie faire au maximum  caractères'
 product:
   head:
     title: 'Produit: %name%'
@@ -39,6 +42,9 @@ product:
       name:
         label: 'Nom du produit'
         placeholder: 'Tapez le nom du produit'
+        notBlank: 'Le nom du produit est obligatoire'
+        lengthMin: 'Le nom du produit doit faire au moins 3 caractères'
+        lengthMax: 'Le nom du produit doit faire au maximum  caractères'
       shortDesc:
         label: 'Tapez une description assez courte mais parlante pour le visiteur'
         placeholder: 'Description courte'
@@ -48,6 +54,7 @@ product:
       price:
         label: 'Prix du produit'
         placeholder: 'Tapez le prix du produit en €'
+        notBlank: 'Le prix du produit est obligatoire'
       btn:
         create: 'create'
       img:

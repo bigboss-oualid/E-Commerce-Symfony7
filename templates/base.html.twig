@@ -24,8 +24,12 @@
     <body>
         {% block navigation %}
             {% include 'navigation/main.html.twig' %}
-        {% endblock %}
+        {% endblock navigation %}
 
         {% block body %}{% endblock %}
+
+        {% block footer %}
+            {% include 'footer/main.html.twig'  %}
+        {% endblock footer %}
     </body>
 </html>

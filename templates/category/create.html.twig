@@ -11,10 +11,15 @@
         {# {{ form(formView) }}#}
 
         {{ form_start(formView) }}
-        {{ form_errors(formView) }}
         <div class="row">
-            <div class="col">
-                {{ form_row(formView.name) }}
+            <div class="col-md-6 col-sm-12 mb-4">
+                {{ form_label(formView.name) }}
+                {{ form_widget(formView.name) }}
+                {{ form_help(formView.name) }}
+                {% for error in formView.name.vars.errors %}
+                    <div class="text-danger">{{ error.message|trans }}</div>
+                {% endfor %}
+                {# form_row(formView.name) #}
             </div>
         </div>
 

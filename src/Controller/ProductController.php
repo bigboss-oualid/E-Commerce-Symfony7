@@ -39,28 +39,6 @@ class ProductController extends AbstractController
         return $this->render('product/show.html.twig', ['product' => $product,]);
     }
 
-    #[Route('/admin/product/{id}/edit', name: 'product_edit')]
-    final public function edit(Product $product, Request $request, EntityManagerInterface $em): Response
-    {
-        $form = $this->createForm(ProductType::class, $product, [
-            'validations_groups' => ['default','with-price'],
-        ]);
-        $form->handleRequest($request);
-        if ($form->isSubmitted() && $form->isValid()) {
-
-            $em->flush();
-
-            return $this->redirectToRoute('product_show', [
-                'categorySlug' => $product->getCategory()->getSlug(),
-                'productSlug' => $product->getSlug(),
-            ]);
-        }
-
-        return $this->render('product/edit.html.twig', [
-            'formView' => $form->createView()
-        ]);
-    }
-
     #[Route('/admin/product/create', name: 'product_create')]
     final public function create(Request $request, SluggerInterface $slugger, EntityManagerInterface $em): Response
     {
@@ -68,7 +46,7 @@ class ProductController extends AbstractController
         $form = $this->createForm(ProductType::class, $product);
         $form->handleRequest($request);
 
-        if ($form->isSubmitted()) {
+        if ($form->isSubmitted() && $form->isValid()) {
             $product->setSlug(\strtolower($slugger->slug($product->getName())));
             $em->persist($product);
             $em->flush();
@@ -80,6 +58,33 @@ class ProductController extends AbstractController
         }
 
         return $this->render('product/create.html.twig', [
+            'formView' => $form->createView()
+        ]);
+    }
+
+    #[Route('/admin/product/{id}/edit', name: 'product_edit')]
+    final public function edit(
+        Product $product,
+        Request $request,
+        SluggerInterface $slugger,
+        EntityManagerInterface $em
+    ): Response {
+        $form = $this->createForm(ProductType::class, $product, [
+            'validation_groups' => ['Default', 'with-price'],
+        ]);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $product->setSlug(\strtolower($slugger->slug($product->getName())));
+            $em->flush();
+
+            return $this->redirectToRoute('product_show', [
+                'categorySlug' => $product->getCategory()->getSlug(),
+                'productSlug' => $product->getSlug(),
+            ]);
+        }
+
+        return $this->render('product/edit.html.twig', [
             'formView' => $form->createView()
         ]);
     }

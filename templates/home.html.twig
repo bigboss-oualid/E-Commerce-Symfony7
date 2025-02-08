@@ -5,7 +5,7 @@
 {% endblock title %}
 
 {% block body %}
-    <div class="container pt-5">
+    <div class="container pt-5 pb-5">
         <h1>{{ 'homepage.body.title'|trans }}</h1>
         <div class="row">
             {% for p in products %}
@@ -17,12 +17,12 @@
                             alt="{{ p.name }}"
                         >
                         <div class="card-body">
-                            <h4 class="card-title">{{ p.name }}({{ p.price / 100}}) &euro;</h4>
+                            <h4 class="card-title">{{ p.name }} ({{ p.price / 100}})&nbsp;&euro;</h4>
                             <span class="badge bg-info">
                                 {{ p.category.name }}
                             </span>
 
-                            <p class="card-text">{{ p.shortDescription }}</p>
+                            <p class="card-text">{{ p.shortDescription|slice(0, 150) ~ '...' }}</p>
                             <a
                                 href="{{ path('product_show', {'categorySlug': p.category.slug,'productSlug': p.slug}) }}"
                                 class="btn btn-primary btn-sm"

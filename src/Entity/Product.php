@@ -16,12 +16,17 @@ class Product
     private ?int $id = null;
 
     #[ORM\Column(length: 255)]
-    #[Assert\NotBlank(message: 'product.name.notBlank')]
-    #[Assert\Length(min: 3, max: 255, minMessage: 'product.name.length.min', maxMessage: 'product.name.length.max')]
+    #[Assert\NotBlank(message: 'product.create.form.name.notBlank')]
+    #[Assert\Length(
+        min: 3,
+        max: 25,
+        minMessage: 'product.create.form.name.lengthMin',
+        maxMessage: 'product.create.form.name.lengthMax'
+    )]
     private ?string $name = null;
 
     #[ORM\Column]
-    #[Assert\NotBlank(message: 'product.price.notBlank', groups: ['with-price'])]
+    #[Assert\NotBlank(message: 'product.create.form.price.notBlank', groups: ['with-price'])]
     private ?int $price = null;
 
     #[ORM\Column(length: 255)]

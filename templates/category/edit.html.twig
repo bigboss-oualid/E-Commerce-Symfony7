@@ -12,10 +12,14 @@
         {{ form_errors(formView) }}
         <div class="row">
             <div class="col">
-                {{ form_row(formView.name) }}
+                {{ form_label(formView.name) }}
+                {{ form_widget(formView.name) }}
+                {{ form_help(formView.name) }}
+                {% for error in formView.name.vars.errors %}
+                    <div class="text-danger">{{ error.message|trans }}</div>
+                {% endfor %}
             </div>
         </div>
-
 
         <button type="submit" class="btn btn-success">
             <i class="fas fa-save"></i>

@@ -24,8 +24,6 @@ class HomeController extends AbstractController
     {
         $products = $productRepo->findBy([], [], 3);
 
-        return $this->render('home.html.twig', [
-            'products' => $products
-        ]);
+        return $this->render('home.html.twig', ['products' => $products]);
     }
 }

@@ -12,13 +12,48 @@
         {{ form_errors(formView) }}
         <div class="row">
             <div class="col">
-                {{ form_row(formView.name) }}
-                {{ form_row(formView.price) }}
+                {# form_row(formView.name) #}
+
+                {{ form_label(formView.name) }}
+                {{ form_widget(formView.name) }}
+                {{ form_help(formView.name) }}
+                {% for error in formView.name.vars.errors %}
+                    <div class="text-danger">{{ error.message|trans }}</div>
+                {% endfor %}
+
+                {# form_row(formView.price) #}
+
+                {{ form_label(formView.price) }}
+                {{ form_widget(formView.price) }}
+                {{ form_help(formView.price) }}
+                {% for error in formView.price.vars.errors %}
+                    <div class="text-danger">{{ error.message|trans }}</div>
+                {% endfor %}
             </div>
             <div class="col">
-                {{ form_row(formView.mainPicture) }}
-                {{ form_row(formView.category) }}
-                {{ form_row(formView.shortDescription) }}
+                {# form_row(formView.mainPicture) #}
+                {{ form_label(formView.mainPicture) }}
+                {{ form_widget(formView.mainPicture) }}
+                {{ form_help(formView.mainPicture) }}
+                {% for error in formView.mainPicture.vars.errors %}
+                    <div class="text-danger">{{ error.message|trans }}</div>
+                {% endfor %}
+
+                {# form_row(formView.category) #}
+                {{ form_label(formView.category) }}
+                {{ form_widget(formView.category) }}
+                {{ form_help(formView.category) }}
+                {% for error in formView.category.vars.errors %}
+                    <div class="text-danger">{{ error.message|trans }}</div>
+                {% endfor %}
+
+                {# form_row(formView.shortDescription) #}
+                {{ form_label(formView.shortDescription) }}
+                {{ form_widget(formView.shortDescription) }}
+                {{ form_help(formView.shortDescription) }}
+                {% for error in formView.shortDescription.vars.errors %}
+                    <div class="text-danger">{{ error.message|trans }}</div>
+                {% endfor %}
             </div>
         </div>
 

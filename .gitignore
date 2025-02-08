@@ -4,6 +4,7 @@
 
 ###> code/quality ###
 psalm.xml
+.php-cs-fixer.cache
 ###< code/quality ###
 
 ###> symfony/framework-bundle ###
